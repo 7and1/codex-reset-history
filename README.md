@@ -4,6 +4,8 @@ An independent, event-level dataset of Codex usage-limit reset announcements and
 
 **Canonical dataset, methodology and live updates: [codex-reset.com/timeline](https://codex-reset.com/timeline).**
 
+**Permanent archived snapshot:** [doi:10.5281/zenodo.23289519](https://doi.org/10.5281/zenodo.23289519). The [concept DOI](https://doi.org/10.5281/zenodo.23289518) identifies the archive across versions.
+
 This release is a dated snapshot retrieved on **October 12, 2026 (Asia/Shanghai)**, not an automatically refreshed mirror. It contains **62 events: 52 resets and 10 banked grants**, with announcement dates from September 17, 2025 through October 11, 2026. For current counts and later corrections, use the canonical source.
 
 ## Files
