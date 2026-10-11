@@ -1,0 +1,132 @@
+{
+  "profile": "tabular-data-package",
+  "name": "codex-resets",
+  "title": "Codex reset history",
+  "description": "Dated snapshot of Codex usage-limit reset announcements and banked reset grants from September 17, 2025 through October 11, 2026. The canonical live dataset and methodology are at https://codex-reset.com/timeline.",
+  "homepage": "https://codex-reset.com/timeline",
+  "created": "2026-10-11T23:32:12.496Z",
+  "keywords": [
+    "codex",
+    "openai",
+    "usage limits",
+    "rate limits",
+    "reset",
+    "banked reset"
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Posts by Thibault Sottiaux (@thsottiaux) on X",
+      "path": "https://x.com/thsottiaux"
+    },
+    {
+      "title": "Codex Reset monitoring accounts",
+      "path": "https://codex-reset.com/timeline"
+    }
+  ],
+  "contributors": [
+    {
+      "title": "Codex Reset",
+      "path": "https://codex-reset.com/",
+      "role": "publisher"
+    }
+  ],
+  "resources": [
+    {
+      "name": "codex-resets",
+      "path": "codex-resets.csv",
+      "profile": "tabular-data-resource",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": {
+        "fields": [
+          {
+            "name": "event_id",
+            "type": "string",
+            "description": "Stable id: the X post id, the post id plus \"-banked\" for the grant a reset post also gave, or the site's own id for a grant only its monitoring saw.",
+            "constraints": {
+              "required": true,
+              "unique": true
+            }
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "description": "reset (usage limits reset for all users) or banked (a reset credit added to accounts for later use).",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "reset",
+                "banked"
+              ]
+            }
+          },
+          {
+            "name": "announced_at",
+            "type": "datetime",
+            "format": "any",
+            "description": "When the event was announced, UTC (ISO 8601). For a post, its exact time from the post id.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "description": "UTC date of announced_at.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "source",
+            "type": "string",
+            "description": "post (an X post by @thsottiaux) or observed (the site's monitoring accounts; no post).",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "post",
+                "observed"
+              ]
+            }
+          },
+          {
+            "name": "post_url",
+            "type": "string",
+            "format": "uri",
+            "description": "The source post on X; empty for an observed grant."
+          },
+          {
+            "name": "banked_state",
+            "type": "string",
+            "description": "For a banked grant: announced, arriving, available or unknown. Empty for a reset.",
+            "constraints": {
+              "enum": [
+                "",
+                "announced",
+                "arriving",
+                "available",
+                "unknown"
+              ]
+            }
+          },
+          {
+            "name": "summary",
+            "type": "string",
+            "description": "One-line English summary of the announcement."
+          }
+        ],
+        "primaryKey": [
+          "event_id"
+        ]
+      }
+    }
+  ]
+}

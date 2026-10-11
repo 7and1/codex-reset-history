@@ -1,0 +1,726 @@
+{
+  "name": "codex-resets",
+  "title": "Codex reset history",
+  "description": "Every confirmed Codex usage-limit reset and banked reset grant OpenAI announced since September 2025, one row per event, each linked to its source: a public post by Thibault Sottiaux (@thsottiaux) on X, or the site's own monitoring accounts where no post exists.",
+  "homepage": "https://codex-reset.com/timeline",
+  "updated_at": "2026-10-11T23:32:12.496Z",
+  "license": {
+    "name": "CC-BY-4.0",
+    "path": "https://creativecommons.org/licenses/by/4.0/",
+    "title": "Creative Commons Attribution 4.0"
+  },
+  "attribution": "Data: codex-reset.com (https://codex-reset.com/)",
+  "coverage": {
+    "from": "2025-09-17",
+    "to": "2026-10-11"
+  },
+  "counts": {
+    "events": 62,
+    "resets": 52,
+    "banked": 10
+  },
+  "downloads": {
+    "csv": "https://codex-reset.com/data/codex-resets.csv",
+    "json": "https://codex-reset.com/data/codex-resets.json",
+    "datapackage": "https://codex-reset.com/data/datapackage.json"
+  },
+  "fields": [
+    {
+      "name": "event_id",
+      "type": "string",
+      "description": "Stable id: the X post id, the post id plus \"-banked\" for the grant a reset post also gave, or the site's own id for a grant only its monitoring saw.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "reset (usage limits reset for all users) or banked (a reset credit added to accounts for later use).",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "reset",
+          "banked"
+        ]
+      }
+    },
+    {
+      "name": "announced_at",
+      "type": "datetime",
+      "format": "any",
+      "description": "When the event was announced, UTC (ISO 8601). For a post, its exact time from the post id.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "date",
+      "type": "date",
+      "description": "UTC date of announced_at.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "description": "post (an X post by @thsottiaux) or observed (the site's monitoring accounts; no post).",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "post",
+          "observed"
+        ]
+      }
+    },
+    {
+      "name": "post_url",
+      "type": "string",
+      "format": "uri",
+      "description": "The source post on X; empty for an observed grant."
+    },
+    {
+      "name": "banked_state",
+      "type": "string",
+      "description": "For a banked grant: announced, arriving, available or unknown. Empty for a reset.",
+      "constraints": {
+        "enum": [
+          "",
+          "announced",
+          "arriving",
+          "available",
+          "unknown"
+        ]
+      }
+    },
+    {
+      "name": "summary",
+      "type": "string",
+      "description": "One-line English summary of the announcement."
+    }
+  ],
+  "events": [
+    {
+      "event_id": "1968163721034994139",
+      "type": "reset",
+      "announced_at": "2025-09-17T04:02:52.000Z",
+      "date": "2025-09-17",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/1968163721034994139",
+      "banked_state": "",
+      "summary": "We have reset everyone's limits for gpt-5-codex to allow you all to benefit more from it today and as a way to make up for the slowdowns earlier while we were provisioning…"
+    },
+    {
+      "event_id": "1986166501435711936",
+      "type": "reset",
+      "announced_at": "2025-11-05T20:19:29.000Z",
+      "date": "2025-11-05",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/1986166501435711936",
+      "banked_state": "",
+      "summary": "Codex outage resolved. We suffered a minor outage for last 45 minutes which turned into a global outage for last 30 minutes, this is now resolved and we have reset the rate…"
+    },
+    {
+      "event_id": "1992370994028388670",
+      "type": "reset",
+      "announced_at": "2025-11-22T23:13:56.000Z",
+      "date": "2025-11-22",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/1992370994028388670",
+      "banked_state": "",
+      "summary": "We have reset rate limits for all Codex users to compensate for the unusual high latencies in or near the US in the previous hours. Grateful for the team working hard behind the…"
+    },
+    {
+      "event_id": "1995988609896513743",
+      "type": "reset",
+      "announced_at": "2025-12-02T22:49:02.000Z",
+      "date": "2025-12-02",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/1995988609896513743",
+      "banked_state": "",
+      "summary": "We have reset the usage limits for everyone in Codex, which helps us mitigate the issue the fastest and the team will continue to work on the underlying cause. This should…"
+    },
+    {
+      "event_id": "2001114683047317723",
+      "type": "reset",
+      "announced_at": "2025-12-17T02:18:14.000Z",
+      "date": "2025-12-17",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2001114683047317723",
+      "banked_state": "",
+      "summary": "Didn’t need to do this in a while, but you know the drill. We have reset everyone’s usage limits, enjoy more Codex and apologies for the disruption."
+    },
+    {
+      "event_id": "2002137269134819610",
+      "type": "reset",
+      "announced_at": "2025-12-19T22:01:37.000Z",
+      "date": "2025-12-19",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2002137269134819610",
+      "banked_state": "",
+      "summary": "We rewrote the underlying system to track and bill usage in Codex and we have reset usage limits in the process. Backfilling is time consuming and it’s more fun to give free…"
+    },
+    {
+      "event_id": "2004100061933064395",
+      "type": "reset",
+      "announced_at": "2025-12-25T08:01:03.000Z",
+      "date": "2025-12-25",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2004100061933064395",
+      "banked_state": "",
+      "summary": "Holiday gift: reset rate limits AND lifted usage limits to 2X the usual until Jan 1."
+    },
+    {
+      "event_id": "2028649088594436225",
+      "type": "reset",
+      "announced_at": "2026-03-03T01:50:07.000Z",
+      "date": "2026-03-03",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2028649088594436225",
+      "banked_state": "",
+      "summary": "Codex is back up. We introduced an issue that caused requests to be blocked and rejected as high cyber risk. This was fixed in ~8 mins and we are now back online and fully…"
+    },
+    {
+      "event_id": "2029308599835738218",
+      "type": "reset",
+      "announced_at": "2026-03-04T21:30:47.000Z",
+      "date": "2026-03-04",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2029308599835738218",
+      "banked_state": "",
+      "summary": "Fixed a bug where the 2X promotional limit increase was not applied to ~9% of Plus/Pro users; reset limits to compensate."
+    },
+    {
+      "event_id": "2030474136024400173",
+      "type": "reset",
+      "announced_at": "2026-03-08T02:42:13.000Z",
+      "date": "2026-03-08",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2030474136024400173",
+      "banked_state": "",
+      "summary": "We don’t have evidence of a widespread issue with codex usage being drained faster than it should but there are enough reports and we have reset rate limits for plus & pro…"
+    },
+    {
+      "event_id": "2031216405266481489",
+      "type": "reset",
+      "announced_at": "2026-03-10T03:51:43.000Z",
+      "date": "2026-03-10",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2031216405266481489",
+      "banked_state": "",
+      "summary": "This codex issue is now fully resolved and stable for the last couple of hours. You have come to expect it, but yes, that means we will be reseting rate limits in a bit. Enjoy."
+    },
+    {
+      "event_id": "2031605592352313567",
+      "type": "reset",
+      "announced_at": "2026-03-11T05:38:13.000Z",
+      "date": "2026-03-11",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2031605592352313567",
+      "banked_state": "",
+      "summary": "OK, Codex is back and stable and we should be good for a while. Reset button pressed, should see it in a bit"
+    },
+    {
+      "event_id": "2037346989244096581",
+      "type": "reset",
+      "announced_at": "2026-03-27T01:52:28.000Z",
+      "date": "2026-03-27",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2037346989244096581",
+      "banked_state": "",
+      "summary": "Hello. We have reset Codex usage limits across all plans to let everyone experiment with the magnificent plugins we just launched, and because it had been a while! You can just…"
+    },
+    {
+      "event_id": "2039248564967424483",
+      "type": "reset",
+      "announced_at": "2026-04-01T07:48:39.000Z",
+      "date": "2026-04-01",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2039248564967424483",
+      "banked_state": "",
+      "summary": "Our Codex dashboards are showing increased rate of users hitting rate limits and since we don't fully understand why I have made the cautious decision of resetting the usage…"
+    },
+    {
+      "event_id": "2041655710346572085",
+      "type": "reset",
+      "announced_at": "2026-04-07T23:13:48.000Z",
+      "date": "2026-04-07",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2041655710346572085",
+      "banked_state": "",
+      "summary": "3M weekly Codex users milestone (up from 2M a month earlier); reset rate limits to celebrate."
+    },
+    {
+      "event_id": "2042299371602264319",
+      "type": "reset",
+      "announced_at": "2026-04-09T17:51:28.000Z",
+      "date": "2026-04-09",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2042299371602264319",
+      "banked_state": "",
+      "summary": "Launched the $100 plan with a lot of included Codex usage; reset limits alongside it."
+    },
+    {
+      "event_id": "2044943514832871564",
+      "type": "reset",
+      "announced_at": "2026-04-17T00:58:21.000Z",
+      "date": "2026-04-17",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2044943514832871564",
+      "banked_state": "",
+      "summary": "Codex 1-year anniversary: let Codex reset its own rate limits across all plans."
+    },
+    {
+      "event_id": "2046367145588916687",
+      "type": "reset",
+      "announced_at": "2026-04-20T23:15:21.000Z",
+      "date": "2026-04-20",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2046367145588916687",
+      "banked_state": "",
+      "summary": "Codex incident is mitigated, seeing recovery. Lasted about 10 mins, Codex itself helped with the remediation, but ultimately the insight came from a human this time. Apologies for…"
+    },
+    {
+      "event_id": "2048997818673537399",
+      "type": "reset",
+      "announced_at": "2026-04-28T05:28:43.000Z",
+      "date": "2026-04-28",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2048997818673537399",
+      "banked_state": "",
+      "summary": "Reset Codex rate limits for ALL paid plans to celebrate a good week and let everyone build with GPT-5.5."
+    },
+    {
+      "event_id": "2055707616605835333",
+      "type": "reset",
+      "announced_at": "2026-05-16T17:51:03.000Z",
+      "date": "2026-05-16",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2055707616605835333",
+      "banked_state": "",
+      "summary": "Codex usage limits have now been reset across all paid plans. Enjoy the weekend!"
+    },
+    {
+      "event_id": "2058280452851638313",
+      "type": "reset",
+      "announced_at": "2026-05-23T20:14:35.000Z",
+      "date": "2026-05-23",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2058280452851638313",
+      "banked_state": "",
+      "summary": "Some of you noticed limits drained faster in Codex, we root caused it to an optimization that we rolled back that had an impact on cache hit rates when compacting across long…"
+    },
+    {
+      "event_id": "2061106703446450392",
+      "type": "reset",
+      "announced_at": "2026-05-31T15:25:06.000Z",
+      "date": "2026-05-31",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2061106703446450392",
+      "banked_state": "",
+      "summary": "The Codex usage limits have been reset for all paid ChatGPT subscriptions. You should be back to 100% weekly and 100% hourly limits. Let the tokens do incredible things today and…"
+    },
+    {
+      "event_id": "2062329981548802523",
+      "type": "reset",
+      "announced_at": "2026-06-04T00:25:58.000Z",
+      "date": "2026-06-04",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2062329981548802523",
+      "banked_state": "",
+      "summary": "Hi. Over the last 24 hours we had three separate small incidents that affected Codex reliability. Those are three too many and we are taking active steps for them to not…"
+    },
+    {
+      "event_id": "2067399435009622521",
+      "type": "reset",
+      "announced_at": "2026-06-18T00:10:10.000Z",
+      "date": "2026-06-18",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2067399435009622521",
+      "banked_state": "",
+      "summary": "\"Sneaky double reset\": full reset applied plus an extra reset deposited into the reset bank."
+    },
+    {
+      "event_id": "2067399435009622521-banked",
+      "type": "banked",
+      "announced_at": "2026-06-18T00:10:10.000Z",
+      "date": "2026-06-18",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2067399435009622521",
+      "banked_state": "unknown",
+      "summary": "\"Sneaky double reset\": full reset applied plus an extra reset deposited into the reset bank."
+    },
+    {
+      "event_id": "2070653282440405046",
+      "type": "reset",
+      "announced_at": "2026-06-26T23:39:48.000Z",
+      "date": "2026-06-26",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2070653282440405046",
+      "banked_state": "",
+      "summary": "We are giving all Codex users a usage reset on the house. Should be showing in your accounts in the next few hours. We have applied some mitigations, but our investigation hasn't…"
+    },
+    {
+      "event_id": "2071381664853319742",
+      "type": "reset",
+      "announced_at": "2026-06-28T23:54:07.000Z",
+      "date": "2026-06-28",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2071381664853319742",
+      "banked_state": "",
+      "summary": "As we are still investigating, I have reset everyone's Codex usage limits. This is a hard reset given some users had stacked up to three banked resets already that they can apply…"
+    },
+    {
+      "event_id": "2071740419030053227",
+      "type": "reset",
+      "announced_at": "2026-06-29T23:39:41.000Z",
+      "date": "2026-06-29",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2071740419030053227",
+      "banked_state": "",
+      "summary": "Full reset within the hour plus one additional banked reset, after usage was being consumed faster than expected."
+    },
+    {
+      "event_id": "2071740419030053227-banked",
+      "type": "banked",
+      "announced_at": "2026-06-29T23:39:41.000Z",
+      "date": "2026-06-29",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2071740419030053227",
+      "banked_state": "unknown",
+      "summary": "Full reset within the hour plus one additional banked reset, after usage was being consumed faster than expected."
+    },
+    {
+      "event_id": "2075330198887940337",
+      "type": "reset",
+      "announced_at": "2026-07-09T21:24:11.000Z",
+      "date": "2026-07-09",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2075330198887940337",
+      "banked_state": "",
+      "summary": "Enjoy a full reset of your usage limits for ChatGPT Work and Codex. Propagating in the next hour. @_rajanagarwal just joined to work on model research and push on coding…"
+    },
+    {
+      "event_id": "2075641131002700120",
+      "type": "reset",
+      "announced_at": "2026-07-10T17:59:43.000Z",
+      "date": "2026-07-10",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2075641131002700120",
+      "banked_state": "",
+      "summary": "Hello beautiful people! We have reset usage limits across Codex and ChatGPT Work. And another one will come later in the day. Rejoice. Now that I have your attention, a quick…"
+    },
+    {
+      "event_id": "2075820987833274448",
+      "type": "reset",
+      "announced_at": "2026-07-11T05:54:25.000Z",
+      "date": "2026-07-11",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2075820987833274448",
+      "banked_state": "",
+      "summary": "Introducing... another usage limit reset for all our ChatGPT Work and Codex users. Should land over next 30 minutes. Hope you have an awesome weekend. Thank you for pushing our…"
+    },
+    {
+      "event_id": "2076418567143408112",
+      "type": "banked",
+      "announced_at": "2026-07-12T21:28:59.000Z",
+      "date": "2026-07-12",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2076418567143408112",
+      "banked_state": "unknown",
+      "summary": "Added a banked reset to 500k ChatGPT Work/Codex users; shipped banked-reset redemption on web and mobile."
+    },
+    {
+      "event_id": "2076735790567338203",
+      "type": "banked",
+      "announced_at": "2026-07-13T18:29:31.000Z",
+      "date": "2026-07-13",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2076735790567338203",
+      "banked_state": "unknown",
+      "summary": "7M active users milestone: added a banked reset to every account, appliable on demand from desktop/web."
+    },
+    {
+      "event_id": "2077114635308986427",
+      "type": "reset",
+      "announced_at": "2026-07-14T19:34:54.000Z",
+      "date": "2026-07-14",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2077114635308986427",
+      "banked_state": "",
+      "summary": "8M active users across Codex and ChatGPT Work: reset for all, and still no 5h rate limit, to explore GPT-5.6 Sol."
+    },
+    {
+      "event_id": "2077607697487188198",
+      "type": "reset",
+      "announced_at": "2026-07-16T04:14:09.000Z",
+      "date": "2026-07-16",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2077607697487188198",
+      "banked_state": "",
+      "summary": "9M active users: another reset, restoring 100% weekly usage limit."
+    },
+    {
+      "event_id": "2078320950488297917",
+      "type": "reset",
+      "announced_at": "2026-07-18T03:28:22.000Z",
+      "date": "2026-07-18",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2078320950488297917",
+      "banked_state": "",
+      "summary": "Oops... I did it again. Enjoy reset usage limits for all paid users for Codex and ChatGPT Work. Super grateful for an incredible team who is iterating at lightspeed and keeping…"
+    },
+    {
+      "event_id": "2079609157934886975",
+      "type": "reset",
+      "announced_at": "2026-07-21T16:47:15.000Z",
+      "date": "2026-07-21",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2079609157934886975",
+      "banked_state": "",
+      "summary": "10M users: new usage reset for paid Codex and ChatGPT Work users, landing within the hour."
+    },
+    {
+      "event_id": "2081096447718723984",
+      "type": "reset",
+      "announced_at": "2026-07-25T19:17:12.695Z",
+      "date": "2026-07-25",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2081096447718723984",
+      "banked_state": "",
+      "summary": "Usage limits reset for all Codex and ChatGPT Work users after an almost-global outage the previous night."
+    },
+    {
+      "event_id": "2081940052154933696",
+      "type": "reset",
+      "announced_at": "2026-07-28T03:09:23.666Z",
+      "date": "2026-07-28",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2081940052154933696",
+      "banked_state": "",
+      "summary": "Back at the laptop: usage limits reset for all paid users of Codex and ChatGPT Work."
+    },
+    {
+      "event_id": "2082317452755751098",
+      "type": "reset",
+      "announced_at": "2026-07-29T04:09:02.981Z",
+      "date": "2026-07-29",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2082317452755751098",
+      "banked_state": "",
+      "summary": "Usage limits reset for all ChatGPT Work and Codex users, alongside an update on GPT-5.6 Sol using Codex limits faster than expected."
+    },
+    {
+      "event_id": "2083395449814229287",
+      "type": "reset",
+      "announced_at": "2026-08-01T03:32:37.508Z",
+      "date": "2026-08-01",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2083395449814229287",
+      "banked_state": "",
+      "summary": "Usage limits reset for Codex and ChatGPT Work to celebrate a week of efficiency and GPT-5.6 Luna throughput."
+    },
+    {
+      "event_id": "2086188036493344823",
+      "type": "reset",
+      "announced_at": "2026-08-08T20:29:22.056Z",
+      "date": "2026-08-08",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2086188036493344823",
+      "banked_state": "",
+      "summary": "Usage limits reset for all paid users of ChatGPT Work and Codex to celebrate GPT-5.6 Sol availability."
+    },
+    {
+      "event_id": "2086972802457063486",
+      "type": "reset",
+      "announced_at": "2026-08-11T00:27:44.842Z",
+      "date": "2026-08-11",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2086972802457063486",
+      "banked_state": "",
+      "summary": "Hi. It is done. This completed the reset promised for Monday; the reference weekly-usage card returned to 100% remaining."
+    },
+    {
+      "event_id": "2087706104814023111",
+      "type": "reset",
+      "announced_at": "2026-08-13T01:01:37.000Z",
+      "date": "2026-08-13",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2087706104814023111",
+      "banked_state": "",
+      "summary": "Crossed 15M active users: a celebratory reset for everyone, landing within the hour — announced late as old news from a bunch of days ago."
+    },
+    {
+      "event_id": "2090766694897619318",
+      "type": "banked",
+      "announced_at": "2026-08-21T11:43:19.000Z",
+      "date": "2026-08-21",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2090766694897619318",
+      "banked_state": "announced",
+      "summary": "20M active users milestone: announced one banked reset for every Codex and ChatGPT Work user, credited during the day for on-demand use."
+    },
+    {
+      "event_id": "2091688655828246890",
+      "type": "reset",
+      "announced_at": "2026-08-24T00:46:51.000Z",
+      "date": "2026-08-24",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2091688655828246890",
+      "banked_state": "",
+      "summary": "Good Sunday reset propagated to accounts, alongside usage fixes for the issues found the day before — \"you should feel a positive difference.\""
+    },
+    {
+      "event_id": "2092311059197808936",
+      "type": "reset",
+      "announced_at": "2026-08-25T14:15:00.000Z",
+      "date": "2026-08-25",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2092311059197808936",
+      "banked_state": "",
+      "summary": "Quiet reset for all paid plans — weekly usage back to 100% from ~14:00 UTC. Tibo confirmed it only in replies (\"Ah yeah, forgot to say\") ahead of the Plus 5h-limit return."
+    },
+    {
+      "event_id": "2093014447833116908",
+      "type": "reset",
+      "announced_at": "2026-08-27T16:35:05.348Z",
+      "date": "2026-08-27",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2093014447833116908",
+      "banked_state": "",
+      "summary": "Reset for all ChatGPT Work and Codex users: “Never slept better and feeling reseted. Brand new me and brand new usage for all ChatGPT Work and Codex users.”"
+    },
+    {
+      "event_id": "2093801758665715784",
+      "type": "reset",
+      "announced_at": "2026-08-29T20:43:34.878Z",
+      "date": "2026-08-29",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2093801758665715784",
+      "banked_state": "",
+      "summary": "Usage reset for all paid Codex and ChatGPT Work users, with usage fixes (compaction, memory, goals, subagents, MCP) that stretch limits 10–50% further."
+    },
+    {
+      "event_id": "2094252447271366730",
+      "type": "reset",
+      "announced_at": "2026-08-31T02:34:27.000Z",
+      "date": "2026-08-31",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2094252447271366730",
+      "banked_state": "",
+      "summary": "25M active users: to celebrate, usage reset for every paid ChatGPT Work and Codex subscription — the reset promised for 6pm PT the previous day."
+    },
+    {
+      "event_id": "2095651088502591861",
+      "type": "banked",
+      "announced_at": "2026-09-03T23:12:09.000Z",
+      "date": "2026-09-03",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2095651088502591861",
+      "banked_state": "announced",
+      "summary": "Astra access compensation: one banked reset for every day without Astra on a paid ChatGPT plan, starting that day — the first drop promised about three hours later."
+    },
+    {
+      "event_id": "2096035437299237298",
+      "type": "banked",
+      "announced_at": "2026-09-05T00:39:25.000Z",
+      "date": "2026-09-05",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2096035437299237298",
+      "banked_state": "arriving",
+      "summary": "Astra rolled out ahead of schedule, and every Plus, Pro and Business user still gets a full banked reset that day, landing by end of day."
+    },
+    {
+      "event_id": "2097043464538264003",
+      "type": "reset",
+      "announced_at": "2026-09-08T01:34:00.000Z",
+      "date": "2026-09-08",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2097043464538264003",
+      "banked_state": "",
+      "summary": "Global reset landed around 01:34 UTC, seen in usage meters before any announcement; Tibo confirmed at 04:05 UTC: “All reset for everyone. Enjoy the week with Astra.”"
+    },
+    {
+      "event_id": "2098685367058612394",
+      "type": "reset",
+      "announced_at": "2026-09-12T08:09:17.000Z",
+      "date": "2026-09-12",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2098685367058612394",
+      "banked_state": "",
+      "summary": "Reset for every paid Codex and ChatGPT Work user, announced with that morning's Astra quality update and confirmed fully propagated: “Reset all propagated. Sweet dreams.”"
+    },
+    {
+      "event_id": "2102463847714247142",
+      "type": "banked",
+      "announced_at": "2026-09-22T18:23:37.000Z",
+      "date": "2026-09-22",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2102463847714247142",
+      "banked_state": "arriving",
+      "summary": "GPT-6 Sol and Luna launch: one banked reset loaded into every Plus, Pro and Business account, alongside a permanent 50% API price cut."
+    },
+    {
+      "event_id": "2103911959544610829",
+      "type": "reset",
+      "announced_at": "2026-09-26T18:17:54.000Z",
+      "date": "2026-09-26",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2103911959544610829",
+      "banked_state": "",
+      "summary": "Reset for every paid Codex and ChatGPT Work user, promised after a brief disruption and confirmed fully propagated that evening: “Resets all propagated. That will be all.”"
+    },
+    {
+      "event_id": "2105008012525769969",
+      "type": "banked",
+      "announced_at": "2026-09-29T18:53:14.000Z",
+      "date": "2026-09-29",
+      "source": "observed",
+      "post_url": "",
+      "banked_state": "available",
+      "summary": "A new banked Codex reset landed on our monitoring accounts. Tibo has not announced it on X yet."
+    },
+    {
+      "event_id": "2106131810921136451",
+      "type": "reset",
+      "announced_at": "2026-10-02T21:18:48.000Z",
+      "date": "2026-10-02",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2106131810921136451",
+      "banked_state": "",
+      "summary": "Global reset for all paid ChatGPT accounts, promised the evening before after GPT-6.1 Sol’s slow start and confirmed that afternoon: “Reset all propagated. Enjoy.”"
+    },
+    {
+      "event_id": "2107676072871600470",
+      "type": "reset",
+      "announced_at": "2026-10-07T03:35:09.000Z",
+      "date": "2026-10-07",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2107676072871600470",
+      "banked_state": "",
+      "summary": "Full reset for Codex and ChatGPT Work users, picked by community vote in the 28-day ship-or-reset series: “the reset has been processed. Enjoy!”"
+    },
+    {
+      "event_id": "2107913674593644711",
+      "type": "banked",
+      "announced_at": "2026-10-07T19:19:17.000Z",
+      "date": "2026-10-07",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2107913674593644711",
+      "banked_state": "unknown",
+      "summary": "40M active users milestone: one banked reset loaded into every paid Codex and ChatGPT Work account on Day 3 of the 28-day series, alongside GPT-6 in Chat."
+    },
+    {
+      "event_id": "2109132167112782291",
+      "type": "reset",
+      "announced_at": "2026-10-11T04:01:09.000Z",
+      "date": "2026-10-11",
+      "source": "post",
+      "post_url": "https://x.com/thsottiaux/status/2109132167112782291",
+      "banked_state": "",
+      "summary": "Put the reset in the bag. All propagated. https://t.co/HGxaD3Zdcj"
+    }
+  ]
+}

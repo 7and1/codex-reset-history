@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite the canonical Codex Reset dataset when reusing this snapshot."
+type: dataset
+title: "Codex reset history"
+authors:
+  - name: "Codex Reset"
+version: "2026-10-12"
+date-released: 2026-10-12
+license: CC-BY-4.0
+url: "https://codex-reset.com/timeline"
